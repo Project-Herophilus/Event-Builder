@@ -1,10 +1,7 @@
 package io.connectedhealth_idaas.eventbuilder.events.platform;
 
-import io.connectedhealth_idaas.eventbuilder.pojos.clinical.legacy.*;
-import io.connectedhealth_idaas.eventbuilder.pojos.clinical.legacy.AppointmentInformation;
+import io.connectedhealth_idaas.eventbuilder.pojos.platform.*;
 import io.connectedhealth_idaas.eventbuilder.pojos.clinical.fhir.Location;
-import io.connectedhealth_idaas.eventbuilder.pojos.clinical.legacy.MessageHeader;
-import io.connectedhealth_idaas.eventbuilder.pojos.clinical.legacy.PharmacyTreatmentOrder;
 
 public class CustomerExperienceEvent {
 

@@ -1,122 +1,114 @@
 package io.connectedhealth_idaas.eventbuilder.builders.fhir;
 
+import ca.uhn.fhir.context.FhirContext;
+import ca.uhn.fhir.rest.client.api.IGenericClient;
+import org.hl7.fhir.r4.model.*;
+import org.hl7.fhir.r4.model.Observation;
+// Import builder class for ease of usage
+import io.connectedhealth_idaas.eventbuilder.pojos.*;
+
+// https://hapifhir.io/hapi-fhir/docs/model/working_with_resources.html
+//https://hapifhir.io/hapi-fhir/apidocs/hapi-fhir-structures-r4/org/hl7/fhir/r4/model/package-summary.html
+
 public class Patient {
-
-    private String SystemURL;
-    private String SystemID;
-    private String Patient_Name_Last;
-    private String Patient_Name_Middle;
-    private String Patient_Name_First;
-    private String Patient_Gender;
-    private String Patient_Number_Home;
-    private String Patient_Number_Business;
-    private String Patient_Number_Mobile;
-    private String Patient_Address_Line;
-    private String Patient_Address_City;
-    private String Patient_Address_State;
-    private String Patient_Address_Zip;
-
-    public String getSystemURL() {
-        return SystemURL;
+    public static org.hl7.fhir.r4.model.Patient createPatient(io.connectedhealth_idaas.eventbuilder.pojos.platform.Person patientData,
+                                                              io.connectedhealth_idaas.eventbuilder.pojos.platform.Address addressData,
+                                                              io.connectedhealth_idaas.eventbuilder.pojos.platform.ContactPerson contactPersonData)
+    {
+        // Create a patient object
+        org.hl7.fhir.r4.model.Patient patient = new org.hl7.fhir.r4.model.Patient();
+        patient.addIdentifier()
+                .setSystem("")
+                .setValue("12345");
+        patient.addName()
+                .setFamily(patientData.getNameLast())
+                .addGiven(patientData.getNameMiddle())
+                .addGiven(patientData.getNameFirst());
+        patient.setGender(Enumerations.AdministrativeGender.MALE);
+        //patient.setBirthDate();
+        Address address = patient.addAddress()
+                //.setLine("");
+                .setCity("");
+        ContactPoint contactPoint = patient.addTelecom()
+                .setUse(ContactPoint.ContactPointUse.HOME);
+        //Returns
+        return patient;
     }
 
-    public void setSystemURL(String systemURL) {
-        SystemURL = systemURL;
-    }
+    public static void createPatientObjectGeneric()
+    {
+        // Create a patient object
+        org.hl7.fhir.r4.model.Patient patient = new org.hl7.fhir.r4.model.Patient();
+        patient.addIdentifier()
+                .setSystem("http://acme.org/mrns")
+                .setValue("12345");
+        patient.addName()
+                .setFamily("Jameson")
+                .addGiven("J")
+                .addGiven("Jonah");
+        patient.setGender(Enumerations.AdministrativeGender.MALE);
 
-    public String getSystemID() {
-        return SystemID;
-    }
+        // Give the patient a temporary UUID so that other resources in
+        // the transaction can refer to it
+        patient.setId(IdType.newRandomUuid());
 
-    public void setSystemID(String systemID) {
-        SystemID = systemID;
-    }
+        // Create an observation object
+        // Create a patient object
+        org.hl7.fhir.r4.model.Observation observation = new org.hl7.fhir.r4.model.Observation();
+        observation.setStatus(Observation.ObservationStatus.FINAL);
+        observation
+                .getCode()
+                .addCoding()
+                .setSystem("http://loinc.org")
+                .setCode("789-8")
+                .setDisplay("Erythrocytes [#/volume] in Blood by Automated count");
+        observation.setValue(
+                new Quantity()
+                        .setValue(4.12)
+                        .setUnit("10 trillion/L")
+                        .setSystem("http://unitsofmeasure.org")
+                        .setCode("10*12/L"));
 
-    public String getPatient_Name_Last() {
-        return Patient_Name_Last;
-    }
+        // The observation refers to the patient using the ID, which is already
+        // set to a temporary UUID
+        observation.setSubject(new Reference(patient.getIdElement().getValue()));
 
-    public void setPatient_Name_Last(String patient_Name_Last) {
-        Patient_Name_Last = patient_Name_Last;
-    }
+        // Create a bundle that will be used as a transaction
+        Bundle bundle = new Bundle();
+        bundle.setType(Bundle.BundleType.TRANSACTION);
 
-    public String getPatient_Name_Middle() {
-        return Patient_Name_Middle;
-    }
+        // Add the patient as an entry. This entry is a POST with an
+        // If-None-Exist header (conditional create) meaning that it
+        // will only be created if there isn't already a Patient with
+        // the identifier 12345
+        bundle.addEntry()
+                .setFullUrl(patient.getIdElement().getValue())
+                .setResource(patient)
+                .getRequest()
+                .setUrl("Patient")
+                .setIfNoneExist("identifier=http://acme.org/mrns|12345")
+                .setMethod(Bundle.HTTPVerb.POST);
 
-    public void setPatient_Name_Middle(String patient_Name_Middle) {
-        Patient_Name_Middle = patient_Name_Middle;
-    }
+        // Add the observation. This entry is a POST with no header
+        // (normal create) meaning that it will be created even if
+        // a similar resource already exists.
+        bundle.addEntry()
+                .setResource(observation)
+                .getRequest()
+                .setUrl("Observation")
+                .setMethod(Bundle.HTTPVerb.POST);
 
-    public String getPatient_Name_First() {
-        return Patient_Name_First;
-    }
+        // Log the request
+        FhirContext ctx = FhirContext.forR4();
+        System.out.println(ctx.newJsonParser().setPrettyPrint(true).encodeResourceToString(bundle));
 
-    public void setPatient_Name_First(String patient_Name_First) {
-        Patient_Name_First = patient_Name_First;
-    }
+        // Create a client and post the transaction to the server
+        IGenericClient client = ctx.newRestfulGenericClient("http://hapi.fhir.org/baseR4");
+        Bundle resp = client.transaction().withBundle(bundle).execute();
 
-    public String getPatient_Gender() {
-        return Patient_Gender;
-    }
+        // Log the response
+        System.out.println(ctx.newJsonParser().setPrettyPrint(true).encodeResourceToString(resp));
 
-    public void setPatient_Gender(String patient_Gender) {
-        Patient_Gender = patient_Gender;
-    }
-
-    public String getPatient_Number_Home() {
-        return Patient_Number_Home;
-    }
-
-    public void setPatient_Number_Home(String patient_Number_Home) {
-        Patient_Number_Home = patient_Number_Home;
-    }
-
-    public String getPatient_Number_Business() {
-        return Patient_Number_Business;
-    }
-
-    public void setPatient_Number_Business(String patient_Number_Business) {
-        Patient_Number_Business = patient_Number_Business;
-    }
-
-    public String getPatient_Number_Mobile() {
-        return Patient_Number_Mobile;
-    }
-
-    public void setPatient_Number_Mobile(String patient_Number_Mobile) {
-        Patient_Number_Mobile = patient_Number_Mobile;
-    }
-
-    public String getPatient_Address_Line() {
-        return Patient_Address_Line;
-    }
-
-    public void setPatient_Address_Line(String patient_Address_Line) {
-        Patient_Address_Line = patient_Address_Line;
-    }
-
-    public String getPatient_Address_City() {
-        return Patient_Address_City;
-    }
-
-    public void setPatient_Address_City(String patient_Address_City) {
-        Patient_Address_City = patient_Address_City;
-    }
-
-    public String getPatient_Address_State() {
-        return Patient_Address_State;
-    }
-
-    public void setPatient_Address_State(String patient_Address_State) {
-        Patient_Address_State = patient_Address_State;
-    }
-
-    public String getPatient_Address_Zip() {
-        return Patient_Address_Zip;
-    }
-
-    public void setPatient_Address_Zip(String patient_Address_Zip) {
-        Patient_Address_Zip = patient_Address_Zip;
     }
 }
+
