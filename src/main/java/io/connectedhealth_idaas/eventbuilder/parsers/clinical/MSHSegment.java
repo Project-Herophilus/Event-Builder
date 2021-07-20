@@ -1,7 +1,7 @@
 package io.connectedhealth_idaas.eventbuilder.parsers.clinical;
 
 // Event Builder objects
-import io.connectedhealth_idaas.eventbuilder.common.hl7.HL7SegmentConstants;
+import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.HL7SegmentConstants;
 import io.connectedhealth_idaas.eventbuilder.pojos.platform.MessageHeader;
 
 /**

@@ -1,4 +1,4 @@
-package io.connectedhealth_idaas.eventbuilder.common.hl7;
+package io.connectedhealth_idaas.eventbuilder.builders.hl7.common;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package io.connectedhealth_idaas.eventbuilder.common.hl7;
+package io.connectedhealth_idaas.eventbuilder.builders.hl7.common;
 
 public enum HL7VersionAndMessageType {
     VERSION_251_ADTA01("2.5.1"),

@@ -1,4 +1,4 @@
-package io.connectedhealth_idaas.eventbuilder.common.hl7;
+package io.connectedhealth_idaas.eventbuilder.builders.hl7.common;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 

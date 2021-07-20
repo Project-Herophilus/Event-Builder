@@ -1,6 +1,6 @@
 package io.connectedhealth_idaas.eventbuilder.pojos.clinical.hl7;
 
-import io.connectedhealth_idaas.eventbuilder.common.hl7.HL7Versions;
+import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.HL7Versions;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 public class MSH {

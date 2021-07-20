@@ -2,7 +2,7 @@ package io.connectedhealth_idaas.eventbuilder.parsers.clinical;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import io.connectedhealth_idaas.eventbuilder.common.hl7.HL7MessageDelimiters;
+import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.HL7MessageDelimiters;
 
 import org.junit.jupiter.api.Test;
 

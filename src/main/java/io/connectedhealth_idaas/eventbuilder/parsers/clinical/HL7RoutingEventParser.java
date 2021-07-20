@@ -3,7 +3,7 @@
  */
 package io.connectedhealth_idaas.eventbuilder.parsers.clinical;
 
-import io.connectedhealth_idaas.eventbuilder.common.hl7.HL7SegmentConstants;
+import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.HL7SegmentConstants;
 import io.connectedhealth_idaas.eventbuilder.events.platform.RoutingEvent;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.slf4j.Logger;

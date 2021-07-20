@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
-import io.connectedhealth_idaas.eventbuilder.common.hl7.Hl7SegmentBuilder;
+import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.Hl7SegmentBuilder;
 import io.connectedhealth_idaas.eventbuilder.pojos.clinical.hl7.EVN;
 import io.connectedhealth_idaas.eventbuilder.pojos.clinical.hl7.MSH;
 import io.connectedhealth_idaas.eventbuilder.pojos.platform.MessageHeader;
