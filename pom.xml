@@ -68,9 +68,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:https://github.com/RedHat-Healthcare/iDAAS-EventBuilder.git</connection>
-		<url>https://github.com/RedHat-Healthcare/iDAAS-EventBuilder</url>
-		<developerConnection>scm:git:https://github.com/RedHat-Healthcare/iDAAS-EventBuilder.git</developerConnection>
+		<connection>scm:git:https://github.com/Project-Herophilus/Event-Builder.git</connection>
+		<url>https://github.com/Project-Herophilus/Event-Builder</url>
+		<developerConnection>scm:git:https://github.com/Project-Herophilus/Event-Builder.git</developerConnection>
     	<tag>HEAD</tag>
   	</scm>
 	 
