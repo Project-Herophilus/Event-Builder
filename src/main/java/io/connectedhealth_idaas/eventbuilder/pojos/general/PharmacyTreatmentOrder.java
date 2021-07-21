@@ -9,6 +9,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
  */
 public class PharmacyTreatmentOrder {
 
+	private String pharmacyOrderRequestType;
 	private String giveCode;
 	private String giveAmtMinimum;
 	private String giveAmtMaximum;
@@ -44,6 +45,15 @@ public class PharmacyTreatmentOrder {
 	private String dispencingPharmacyAddress;
 	private String deliverToPatientLocation;
 	private String deliverToPatientLocationAddress;
+
+	public String getPharmacyOrderRequestType() {
+		return pharmacyOrderRequestType;
+	}
+
+	public void setPharmacyOrderRequestType(String pharmacyOrderRequestType) {
+		this.pharmacyOrderRequestType = pharmacyOrderRequestType;
+	}
+
 	public String getGiveCode() {
 		return giveCode;
 	}
