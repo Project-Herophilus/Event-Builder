@@ -1,6 +1,7 @@
 package io.connectedhealth_idaas.eventbuilder.pojos.platform;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import io.connectedhealth_idaas.eventbuilder.pojos.platform.MessageHeader;
 
 /*
  * @author Alan Scott
@@ -10,57 +11,9 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
  */
 public class UserAccessCredentials {
 
-	private String sendingApp;
-	private String facilityId;
-	private String messageDateTime;
-	private String messageTriggerEvent;
-	private String messageId;
-	private String uniqueMessageId;
-	private String messageVersion;
+	MessageHeader msgHeader;
 	private String UserAuthCredentialType;
 	private String UserAuthCredential;
-	public String getSendingApp() {
-		return sendingApp;
-	}
-	public void setSendingApp(String sendingApp) {
-		this.sendingApp = sendingApp;
-	}
-	public String getFacilityId() {
-		return facilityId;
-	}
-	public void setFacilityId(String facilityId) {
-		this.facilityId = facilityId;
-	}
-	public String getMessageDateTime() {
-		return messageDateTime;
-	}
-	public void setMessageDateTime(String messageDateTime) {
-		this.messageDateTime = messageDateTime;
-	}
-	public String getMessageTriggerEvent() {
-		return messageTriggerEvent;
-	}
-	public void setMessageTriggerEvent(String messageTriggerEvent) {
-		this.messageTriggerEvent = messageTriggerEvent;
-	}
-	public String getMessageId() {
-		return messageId;
-	}
-	public void setMessageId(String messageId) {
-		this.messageId = messageId;
-	}
-	public String getUniqueMessageId() {
-		return uniqueMessageId;
-	}
-	public void setUniqueMessageId(String uniqueMessageId) {
-		this.uniqueMessageId = uniqueMessageId;
-	}
-	public String getMessageVersion() {
-		return messageVersion;
-	}
-	public void setMessageVersion(String messageVersion) {
-		this.messageVersion = messageVersion;
-	}
 	public String getUserAuthCredentialType() {
 		return UserAuthCredentialType;
 	}

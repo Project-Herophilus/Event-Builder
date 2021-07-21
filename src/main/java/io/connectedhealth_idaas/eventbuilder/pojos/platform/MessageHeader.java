@@ -22,6 +22,8 @@ public class MessageHeader {
   private String uniqueMessageId;
   private String messageVersion;
   private String messageVendor;
+  private String industryStd;
+
 
   public String getSendingApp() {
     return sendingApp;
@@ -118,8 +120,16 @@ public String getMessageType() {
   public void setMessageVendor(String messageVendor) {
     this.messageVendor = messageVendor;
   }
-  
-//toString 
+
+  public String getIndustryStd() {
+    return industryStd;
+  }
+
+  public void setIndustryStd(String industryStd) {
+    this.industryStd = industryStd;
+  }
+
+  //toString
 public String toString() 
 {
 	return ReflectionToStringBuilder.toString(this);

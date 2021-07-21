@@ -2,18 +2,19 @@ package io.connectedhealth_idaas.eventbuilder.builders.fhir;
 
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
+import io.connectedhealth_idaas.eventbuilder.pojos.general.ContactPerson;
 import org.hl7.fhir.r4.model.*;
 import org.hl7.fhir.r4.model.Observation;
 // Import builder class for ease of usage
-import io.connectedhealth_idaas.eventbuilder.pojos.*;
+
 
 // https://hapifhir.io/hapi-fhir/docs/model/working_with_resources.html
 //https://hapifhir.io/hapi-fhir/apidocs/hapi-fhir-structures-r4/org/hl7/fhir/r4/model/package-summary.html
 
 public class Patient {
-    public static org.hl7.fhir.r4.model.Patient createPatient(io.connectedhealth_idaas.eventbuilder.pojos.platform.Person patientData,
-                                                              io.connectedhealth_idaas.eventbuilder.pojos.platform.Address addressData,
-                                                              io.connectedhealth_idaas.eventbuilder.pojos.platform.ContactPerson contactPersonData)
+    public static org.hl7.fhir.r4.model.Patient createPatient(io.connectedhealth_idaas.eventbuilder.pojos.general.Person patientData,
+                                                              io.connectedhealth_idaas.eventbuilder.pojos.general.Address addressData,
+                                                              ContactPerson contactPersonData)
     {
         // Create a patient object
         org.hl7.fhir.r4.model.Patient patient = new org.hl7.fhir.r4.model.Patient();

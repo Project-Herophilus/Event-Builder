@@ -1,5 +1,5 @@
 package io.connectedhealth_idaas.eventbuilder.builders.edi.hipaa;
-import io.connectedhealth_idaas.eventbuilder.pojos.edi.hipaa.*;
+import io.connectedhealth_idaas.eventbuilder.pojos.financial.hipaa.*;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 public class HealthcareClaimStatusResponse_277 {

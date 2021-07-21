@@ -1,19 +1,10 @@
 package io.connectedhealth_idaas.eventbuilder.pojos.platform;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import io.connectedhealth_idaas.eventbuilder.pojos.platform.MessageHeader;
 
 public class EMPI {
-    private String sendingApp;
-    private String facilityId;
-    private String organizationId;
-    private String messageDate;
-    private String messageTime;
-    private String messageHour;
-    private String messageType;
-    private String messageEvent;
-    private String messageId;
-    private String uniqueMessageId;
-    private String messageVersion;
+    MessageHeader msgHeader;
     private String lastName;
     private String firstName;
     private String address;
@@ -25,94 +16,6 @@ public class EMPI {
     private String platformModule;
     private String processingComponent;
     private String[] empiNumnber;
-
-    public String getSendingApp() {
-        return sendingApp;
-    }
-
-    public void setSendingApp(String sendingApp) {
-        this.sendingApp = sendingApp;
-    }
-
-    public String getFacilityId() {
-        return facilityId;
-    }
-
-    public void setFacilityId(String facilityId) {
-        this.facilityId = facilityId;
-    }
-
-    public String getOrganizationId() {
-        return organizationId;
-    }
-
-    public void setOrganizationId(String organizationId) {
-        this.organizationId = organizationId;
-    }
-
-    public String getMessageDate() {
-        return messageDate;
-    }
-
-    public void setMessageDate(String messageDate) {
-        this.messageDate = messageDate;
-    }
-
-    public String getMessageTime() {
-        return messageTime;
-    }
-
-    public void setMessageTime(String messageTime) {
-        this.messageTime = messageTime;
-    }
-
-    public String getMessageHour() {
-        return messageHour;
-    }
-
-    public void setMessageHour(String messageHour) {
-        this.messageHour = messageHour;
-    }
-
-    public String getMessageType() {
-        return messageType;
-    }
-
-    public void setMessageType(String messageType) {
-        this.messageType = messageType;
-    }
-
-    public String getMessageEvent() {
-        return messageEvent;
-    }
-
-    public void setMessageEvent(String messageEvent) {
-        this.messageEvent = messageEvent;
-    }
-
-    public String getMessageId() {
-        return messageId;
-    }
-
-    public void setMessageId(String messageId) {
-        this.messageId = messageId;
-    }
-
-    public String getUniqueMessageId() {
-        return uniqueMessageId;
-    }
-
-    public void setUniqueMessageId(String uniqueMessageId) {
-        this.uniqueMessageId = uniqueMessageId;
-    }
-
-    public String getMessageVersion() {
-        return messageVersion;
-    }
-
-    public void setMessageVersion(String messageVersion) {
-        this.messageVersion = messageVersion;
-    }
 
     public String getLastName() {
         return lastName;

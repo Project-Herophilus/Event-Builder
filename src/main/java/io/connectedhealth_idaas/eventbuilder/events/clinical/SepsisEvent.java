@@ -2,7 +2,8 @@ package io.connectedhealth_idaas.eventbuilder.events.clinical;
 
 
 import io.connectedhealth_idaas.eventbuilder.pojos.clinical.fhir.Location;
-import io.connectedhealth_idaas.eventbuilder.pojos.platform.*;
+import io.connectedhealth_idaas.eventbuilder.pojos.general.*;
+import io.connectedhealth_idaas.eventbuilder.pojos.platform.MessageHeader;
 
 public class SepsisEvent {
 
