@@ -65,4 +65,4 @@ jobs:
       if: always()
       run: |
         echo "Settings.xml"
-        cat /github/workspace/.github/workflows/settings.xml
+        cat /home/runner/work/Event-Builder/Event-Builder/.github/workflows/settings.xml
