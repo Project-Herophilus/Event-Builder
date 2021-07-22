@@ -29,7 +29,6 @@ jobs:
         GPG_KEY: ${{ secrets.GPG_KEY }}
         GNUPGHOME: /home/runner/work/Event-Builder/Event-Builder/.gnupg
       run: |
-        export GPG_TTY=$(tty)
         echo "GPG_KEY_ID = $GPG_KEY_ID"
         echo "Import the GPG key"
         echo  "$GPG_KEY" | base64 -d > private.key
