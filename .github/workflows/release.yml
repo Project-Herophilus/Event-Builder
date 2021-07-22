@@ -61,8 +61,3 @@ jobs:
         maven-repo-server-id: ossrh
         maven-repo-server-username: ${{ secrets.NEXUS_USER }}
         maven-repo-server-password: ${{ secrets.NEXUS_PASSWORD }}
-    - name: Follow-up
-      if: always()
-      run: |
-        echo "Settings.xml"
-        cat /home/runner/work/Event-Builder/Event-Builder/.github/workflows/settings.xml
