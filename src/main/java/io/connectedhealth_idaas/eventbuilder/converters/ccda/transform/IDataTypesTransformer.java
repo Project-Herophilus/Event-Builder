@@ -99,7 +99,7 @@ public interface IDataTypesTransformer {
 	 * section text.
 	 *
 	 * @param ed A CDA ED instance
-	 * @idedAnnotations A id to value map for annotation
+	 * @param idedAnnotations id to value map for annotation
 	 * @return A String
 	 */
 	String tED2Annotation(ED ed, Map<String, String> idedAnnotations);
@@ -110,7 +110,7 @@ public interface IDataTypesTransformer {
 	 * included.
 	 *
 	 * @param cd A CDA CD instance
-	 * @param A  id to value map of annotations that maybe referred from
+	 * @param idedAnnotations  id to value map of annotations that maybe referred from
 	 *           originalText
 	 * @return A CodeableConcept composite datatype instance
 	 */
@@ -131,7 +131,7 @@ public interface IDataTypesTransformer {
 	 * included.
 	 *
 	 * @param cd A CDA CD instance
-	 * @param A  id to value map of annotations that maybe referred from
+	 * @param idedAnnotations  id to value map of annotations that maybe referred from
 	 *           originalText
 	 * @return A CodeableConcept composite datatype instance
 	 */
