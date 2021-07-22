@@ -61,3 +61,7 @@ jobs:
         maven-repo-server-id: ossrh
         maven-repo-server-username: ${{ secrets.NEXUS_USER }}
         maven-repo-server-password: ${{ secrets.NEXUS_PASSWORD }}
+    - name: Follow-up
+      run: |
+        echo "Settings.xml"
+        cat /github/workspace/.github/workflows/settings.xml
