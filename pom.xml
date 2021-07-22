@@ -211,10 +211,15 @@
 								<id>sign-artifacts</id>
 								<phase>verify</phase>
 								<goals>
-								<goal>sign</goal>
+									<goal>sign</goal>
 								</goals>
 							</execution>
 						</executions>
+						<configuration>
+							<gpgArguments>
+							  <arg>--no-tty</arg>
+							</gpgArguments>
+						</configuration>
 					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
