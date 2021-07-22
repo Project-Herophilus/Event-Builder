@@ -5,6 +5,9 @@ import ca.uhn.fhir.rest.client.api.IGenericClient;
 import io.connectedhealth_idaas.eventbuilder.pojos.general.ContactPerson;
 import org.hl7.fhir.r4.model.*;
 import org.hl7.fhir.r4.model.Observation;
+
+import java.util.ArrayList;
+import java.util.List;
 // Import builder class for ease of usage
 
 
@@ -12,24 +15,25 @@ import org.hl7.fhir.r4.model.Observation;
 //https://hapifhir.io/hapi-fhir/apidocs/hapi-fhir-structures-r4/org/hl7/fhir/r4/model/package-summary.html
 
 public class Patient {
-    public static org.hl7.fhir.r4.model.Patient createPatient(io.connectedhealth_idaas.eventbuilder.pojos.general.Person patientData,
-                                                              io.connectedhealth_idaas.eventbuilder.pojos.general.Address addressData,
-                                                              ContactPerson contactPersonData)
+    public static org.hl7.fhir.r4.model.Patient createPatient(io.connectedhealth_idaas.eventbuilder.datastructures.PersonData patientData)
     {
         // Create a patient object
         org.hl7.fhir.r4.model.Patient patient = new org.hl7.fhir.r4.model.Patient();
+        // Common Object Conversion
+        List<String> returnAddressStrings = new ArrayList<>();
         patient.addIdentifier()
-                .setSystem("")
-                .setValue("12345");
+                .setSystem(patientData.getIdentifiersData().getSystemName())
+                .setValue(patientData.getIdentifiersData().getSystemValue());
         patient.addName()
-                .setFamily(patientData.getNameLast())
-                .addGiven(patientData.getNameMiddle())
-                .addGiven(patientData.getNameFirst());
+                .setFamily(patientData.getPersonData().getNameLast())
+                .addGiven(patientData.getPersonData().getNameMiddle())
+                .addGiven(patientData.getPersonData().getNameFirst());
+        // Determine Gender Terminology from PersonData
         patient.setGender(Enumerations.AdministrativeGender.MALE);
         //patient.setBirthDate();
         Address address = patient.addAddress()
-                //.setLine("");
-                .setCity("");
+                //.setLine(patientData.getAddressData().getAddress1());
+                .setCity(patientData.getAddressData().getCity());
         ContactPoint contactPoint = patient.addTelecom()
                 .setUse(ContactPoint.ContactPointUse.HOME);
         //Returns

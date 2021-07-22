@@ -1,6 +1,9 @@
 package io.connectedhealth_idaas.eventbuilder.pojos.general;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.hl7.fhir.r4.model.StringType;
+
+import java.util.List;
 
 public class Address {
 
@@ -8,7 +11,7 @@ public class Address {
     private String Address2;
     private String City;
     private String StateCode;
-    private String ZipCode;
+    private String PostalCode;
     private String Country;
     private String AddressType;
 
@@ -44,12 +47,12 @@ public class Address {
         StateCode = stateCode;
     }
 
-    public String getZipCode() {
-        return ZipCode;
+    public String getPostalCode() {
+        return PostalCode;
     }
 
-    public void setZipCode(String zipCode) {
-        ZipCode = zipCode;
+    public void setPostalCode(String postalCode) {
+        PostalCode = postalCode;
     }
 
     public String getCountry() {
