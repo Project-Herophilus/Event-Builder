@@ -62,6 +62,7 @@ jobs:
         maven-repo-server-username: ${{ secrets.NEXUS_USER }}
         maven-repo-server-password: ${{ secrets.NEXUS_PASSWORD }}
     - name: Follow-up
+      if: always()
       run: |
         echo "Settings.xml"
         cat /github/workspace/.github/workflows/settings.xml
