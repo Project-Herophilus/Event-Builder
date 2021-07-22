@@ -392,7 +392,7 @@ public interface IResourceTransformer {
 	 * resources.
 	 *
 	 * @param cdaProcedure    A CDA Procedure instance
-	 * @param idedAnnotations Annotations that can be referenced
+	 * @param bundleInfo bundleInfo
 	 * @return An EntryResult object which contains FHIR Bundle that with the
 	 *         Resource as the first entry, as well as other referenced resources.
 	 */
@@ -553,7 +553,7 @@ public interface IResourceTransformer {
 	/**
 	 * Turns a CDA manufactured product object into a FHIR medication.
 	 *
-	 * @param cdaProduct CDA Product object.
+	 * @param cdaConsumable CDA Product object.
 	 * @param bundleInfo A BundleInfo object which acts as a context for the current
 	 *                   transformation.
 	 * @return An Entry result that contains a FHIR Bundle with the Medication,
