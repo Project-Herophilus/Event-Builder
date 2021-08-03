@@ -9,6 +9,14 @@ public class HIDN {
     private String specialInstructions;
     private String[] dataTags;
 
+    public MessageHeader getMsgHeader() {
+        return msgHeader;
+    }
+
+    public void setMsgHeader(MessageHeader msgHeader) {
+        this.msgHeader = msgHeader;
+    }
+
     public String getServerId() {
         return serverId;
     }

@@ -17,6 +17,14 @@ public class EMPI {
     private String processingComponent;
     private String[] empiNumnber;
 
+    public MessageHeader getMsgHeader() {
+        return msgHeader;
+    }
+
+    public void setMsgHeader(MessageHeader msgHeader) {
+        this.msgHeader = msgHeader;
+    }
+
     public String getLastName() {
         return lastName;
     }

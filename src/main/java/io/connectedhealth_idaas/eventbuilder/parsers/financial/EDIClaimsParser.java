@@ -3,7 +3,7 @@ package io.connectedhealth_idaas.eventbuilder.parsers.financial;
 import io.connectedhealth_idaas.eventbuilder.events.platform.RoutingEvent;
 import io.connectedhealth_idaas.eventbuilder.parsers.financial.SegmentConstants;
 
-public class EDIClaimspPrser {
+public class EDIClaimsParser {
 
     public String[] returnEDISegments(String msgBody) {
         String[] ediSegments;
