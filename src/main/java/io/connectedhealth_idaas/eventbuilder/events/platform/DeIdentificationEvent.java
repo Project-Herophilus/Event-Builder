@@ -1,10 +1,11 @@
-package io.connectedhealth_idaas.eventbuilder.pojos.platform;
+package io.connectedhealth_idaas.eventbuilder.events.platform;
 
 
 import io.connectedhealth_idaas.eventbuilder.pojos.general.*;
+import io.connectedhealth_idaas.eventbuilder.pojos.platform.MessageHeader;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-public class DeIdentification {
+public class DeIdentificationEvent {
 
     private MessageHeader msgHeader;
     private Person personData;
