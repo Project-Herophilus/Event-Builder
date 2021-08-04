@@ -123,8 +123,8 @@ public class PatientVisit {
   public void setDischargeDate(String dischargeDate) {
     this.dischargeDate = dischargeDate;
   }
-  
-//toString 
+
+  //toString
 public String toString() 
 {
 	return ReflectionToStringBuilder.toString(this);
