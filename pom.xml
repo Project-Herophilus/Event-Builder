@@ -137,11 +137,11 @@
 			<artifactId>hapi-fhir-client</artifactId>
 			<version>3.7.0</version>
 		</dependency>
-		<dependency>
+	<!--	<dependency>
 			<groupId>com.helger</groupId>
 			<artifactId>ph-schematron</artifactId>
 			<version>5.0.8</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>ca.uhn.hapi.fhir</groupId>
 			<artifactId>hapi-fhir-validation-resources-dstu3</artifactId>
