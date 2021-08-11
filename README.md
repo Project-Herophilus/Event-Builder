@@ -18,11 +18,15 @@ iDAAS EventBuilder is built on a tiered concept.
 <br/><br/>
 
 # Directory Layout
+
+Within each directory we try and leverage a directory structure to ensure assets are definable to a more specific business area.
+
 | Type|Usage/Implementation |
 | -------------|----------|
 |Pojos|The basis for all activities. It is leveraged for anything that occurs. Pojos are the basis for all activities the platform provides. The intent is that you can leverage pojos for specific or general usage needs, to support this there are several subsdirectories to help for usage.|
 |Parsers|Specific parser based activities that the platform provides and can always be extended. To support extensible there is a directory structure provided. As with everything, it can be extended.|
 |Events|Events are what the platform provides. Think of events as activities you are trying to provide, Events can be constructed from scratch or from Pojos.|
+|Converters|Supported conversion between different industry standards|
 |Builders| Are specific data structures. They build data through pojos|
 
 # POM File
@@ -40,7 +44,7 @@ There are several ways to leverage iDaaS Event Builder depending upon the type o
    <dependency>
             <groupId>io.connectedhealth-idaas</groupId>
             <artifactId>idaas-eventbuilder</artifactId>
-            <version>1.9.0</version>
+            <version>2.1.0</version>
    </dependency>
 ```
 2. You can clone the repository and locally build the code. This will produce a jar file that can be included into the other project
