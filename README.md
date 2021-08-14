@@ -1,23 +1,12 @@
+![Maven Build status](https://github.com/Project-Herophilus/Event-Builder/workflows/Maven%20Build/badge.svg)
 # iDaaS EventBuilder
-iDaaS Event Builder - Part of iDaaS DREAM brand. Move back out from under iDaaS-DREAM in Feb 2021.
-
-![Maven Build status](https://github.com/RedHat-Healthcare/iDAAS-EventBuilder/workflows/Maven%20Build/badge.svg)
-
-# iDAAS-EventBuilder
-iDAAS EventBuilder is designed to help ANY implementation build, parse and/or transform various forms of healthcare
+iDaaS Event Builder is part of iDaaS DREAM components. However, we decided to move it into its own repository as this project current gets pushed with releases into the maven repository. It is designed to help ANY implementation parse and/or build and/or transform various forms of structures. While most of these structures are healthcare industry standards based there are a growing set of structures/events within Event Builder that are being adopted for usage within implementations.
 related data.
 
 ## Pre-Requisites
-iDAAS EventBuilder Pre-Requisites merely focus around JDK, currently version 1.8 is supported; however, it has been compiled with
-numerous other JDKs. The current plan is that as the JDKs for technologies used where iDaaS-Event Builder is implemented you can update the JDK  
-that it is built against.
+iDAAS EventBuilder Pre-Requisites merely focus around JDK, currently JDK version 11 is the main standard support it to implement it with this community as that's the current JDSK supported by several of the upstream projects we use. However, it has been compiled with numerous other JDKs and has been used independtly of our community specific efforts as well.
 
-## iDAAS-EventBuilder Design Concepts
-iDAAS EventBuilder is built on a tiered concept.
-<!--<img src="EventBuilder-Visualized.png" height="325" width="800" alt="Event Builder Components">-->
-<br/><br/>
-
-# Directory Layout
+## Directory Structure(s)
 
 Within each directory we try and leverage a directory structure to ensure assets are definable to a more specific business area.
 
@@ -48,14 +37,6 @@ There are several ways to leverage iDaaS Event Builder depending upon the type o
    </dependency>
 ```
 2. You can clone the repository and locally build the code. This will produce a jar file that can be included into the other project
-
-
-# Builds/Releases
-This section will cover both local and automated builds.
-
-## Local Builds
-1. Use common command line mechanisms or through your IDE to build
-
 
 If you would like to contribute feel free to, contributions are always welcome!!!!
 
