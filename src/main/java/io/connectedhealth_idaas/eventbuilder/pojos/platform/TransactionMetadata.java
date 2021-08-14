@@ -14,12 +14,12 @@
  * permissions and limitations under the License.
  *
  */
-package io.connectedhealth_idaas.eventbuilder.events.platform;
+package io.connectedhealth_idaas.eventbuilder.pojos.platform;
 
 import io.connectedhealth_idaas.eventbuilder.pojos.platform.MessageHeader;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-public class TransactionEvent {
+public class TransactionMetadata {
 
   MessageHeader msgHeader;
   private String platformModule;

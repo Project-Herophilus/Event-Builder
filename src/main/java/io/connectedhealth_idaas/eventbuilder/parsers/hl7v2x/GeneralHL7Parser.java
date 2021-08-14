@@ -1,4 +1,4 @@
-package io.connectedhealth_idaas.eventbuilder.parsers.clinical;
+package io.connectedhealth_idaas.eventbuilder.parsers.hl7v2x;
 
 import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.HL7SegmentConstants;
 import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.HL7MessageDelimiters;

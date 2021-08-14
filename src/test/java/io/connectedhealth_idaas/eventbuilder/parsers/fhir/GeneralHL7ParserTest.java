@@ -1,9 +1,10 @@
-package io.connectedhealth_idaas.eventbuilder.parsers.clinical;
+package io.connectedhealth_idaas.eventbuilder.parsers.fhir;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.HL7MessageDelimiters;
 
+import io.connectedhealth_idaas.eventbuilder.parsers.hl7v2x.GeneralHL7Parser;
 import org.junit.jupiter.api.Test;
 
 public class GeneralHL7ParserTest {
@@ -19,7 +20,7 @@ public class GeneralHL7ParserTest {
             + "GT1||0222PL|NOTREAL^BOB^B||STREET^OTHER STREET^CITY^ST^77787|(444)999-3333|(222)777-5555||||MO|111-33-5555||||NOTREAL GILL N|STREET^OTHER STREET^CITY^ST^99999|(111)222-3333\r"
             + "IN1||022254P|4558PD|BLUE CROSS|STREET^OTHER STREET^CITY^ST^00990||(333)333-6666||221K|LENIX|||19980515|19990515|||PATIENT01 TEST D||||||||||||||||||02LL|022LP554\r";
         
-		HL7MessageDelimiters mshDelimiterDetails  = GeneralHL7Parser.generalMessageProcessing(msgBody);				
+		HL7MessageDelimiters mshDelimiterDetails  = GeneralHL7Parser.generalMessageProcessing(msgBody);
         
         assertEquals("\r", mshDelimiterDetails.getMsgSegmentDelimiter());
         assertEquals("|", mshDelimiterDetails.getMsgFieldDelimiter());

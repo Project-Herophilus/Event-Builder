@@ -1,4 +1,4 @@
-package io.connectedhealth_idaas.eventbuilder.parsers.financial;
+package io.connectedhealth_idaas.eventbuilder.parsers.edi;
 
 public class SegmentConstants {
 

@@ -1,18 +1,24 @@
-package io.connectedhealth_idaas.eventbuilder.parsers.clinical;
+/**
+ * 
+ */
+package io.connectedhealth_idaas.eventbuilder.parsers.hl7v2x;
 
-// Event Builder objects
 import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.HL7SegmentConstants;
-import io.connectedhealth_idaas.eventbuilder.pojos.platform.MessageHeader;
+import io.connectedhealth_idaas.eventbuilder.pojos.platform.RoutingEvent;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Alan Scott
  *
  */
-public class MSHSegment {
+public class HL7RoutingParser {
 
-	public static MessageHeader parseMSHSegment(String msgBody)
-	{
-		MessageHeader mshDetails = new MessageHeader();
+	private static final Logger LOG = LoggerFactory.getLogger(HL7RoutingParser.class);
+
+	public RoutingEvent buildRoutingEvent(String body) {
+		RoutingEvent routingEvent = new RoutingEvent();
 
 		// Delimiters
 		String fieldDelimiter;
@@ -28,7 +34,7 @@ public class MSHSegment {
 		/*
 		 * Parse Message and build events
 		 */
-		String[] messageSegments = msgBody.split(HL7SegmentConstants.DEFAULT_SEGMENT_DELIMITER);
+		String[] messageSegments = body.split(HL7SegmentConstants.DEFAULT_SEGMENT_DELIMITER);
 		for (String segmentData : messageSegments) {
 			if (segmentData.substring(0, 3).equals("MSH")) {
 				// Parse MSH and Populating Parsing Variables
@@ -39,7 +45,7 @@ public class MSHSegment {
 				// Spilt MSH Segment
 				String msgSegment = segmentData;
 				String[] segmentDetails = segmentData.split("["+fieldDelimiter+"]",0);
-				//System.out.println("Segment Count"+segmentDetails.length);
+				LOG.debug("Segment Count {}", segmentDetails.length);
 				// Splitting Routing Data
 				String messageTypeData = segmentDetails[8].toString();
 				//String[] messageTypeDetails = messageTypeData.split("["+componentDelimiter+"]");
@@ -51,23 +57,29 @@ public class MSHSegment {
 				// Create UMID ID
 				String messageUMID = segmentDetails[3].toString()+"_"+segmentDetails[2].toString()+"_"+
 						messageTypeData.substring(0,3)+"_"+ segmentDetails[9].toString();
-				// Populate into MSH
-				mshDetails.setSendingApp(segmentDetails[2].toString());
-				mshDetails.setFacilityId(segmentDetails[3].toString());
-				mshDetails.setMessageDateTime(segmentDetails[6].toString());
-				mshDetails.setMessageDate(messageSendingDate);
-				mshDetails.setMessageHour(messageSendingHour);
-				mshDetails.setMessageTime(messageSendingTime);
-				mshDetails.setMessageType(messageTypeData.substring(0,3));
-				mshDetails.setMessageEvent(messageTypeData.substring(4,7));
-				mshDetails.setMessageId(segmentDetails[9].toString());
-				mshDetails.setUniqueMessageId(messageUMID);
-				mshDetails.setMessageVersion(segmentDetails[11].toString());
-
+				// Populate into Routing Event
+				routingEvent.setSendingApp(segmentDetails[2].toString());
+				routingEvent.setFacilityId(segmentDetails[3].toString());
+				routingEvent.setIndustryStd("HL7v2");
+				routingEvent.setMessageDateTime(segmentDetails[6].toString());
+				routingEvent.setMessageDate(messageSendingDate);
+				routingEvent.setMessageHour(messageSendingHour);
+				routingEvent.setMessageTime(messageSendingTime);
+				routingEvent.setMessageType(messageTypeData.substring(0,3));
+				routingEvent.setMessageEvent(messageTypeData.substring(4,7));
+				routingEvent.setMessageId(segmentDetails[9].toString());
+				routingEvent.setUniqueMessageId(messageUMID);
+				routingEvent.setMessageVersion(segmentDetails[11].toString());
+				routingEvent.setMessageData(body);
 			}
 			// end of for loop
 		}
-		return mshDetails;
-		
+
+		return routingEvent;
+	}
+
+	public String toString()
+	{
+		return ReflectionToStringBuilder.toString(this);
 	}
 }

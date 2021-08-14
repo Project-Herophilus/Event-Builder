@@ -1,4 +1,4 @@
-package io.connectedhealth_idaas.eventbuilder.events.platform;
+package io.connectedhealth_idaas.eventbuilder.pojos.platform;
 
 import io.connectedhealth_idaas.eventbuilder.pojos.general.Codeset;
 import io.connectedhealth_idaas.eventbuilder.pojos.platform.MessageHeader;

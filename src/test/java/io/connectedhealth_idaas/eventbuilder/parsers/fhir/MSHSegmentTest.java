@@ -1,8 +1,9 @@
-package io.connectedhealth_idaas.eventbuilder.parsers.clinical;
+package io.connectedhealth_idaas.eventbuilder.parsers.fhir;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+import io.connectedhealth_idaas.eventbuilder.parsers.hl7v2x.MSHSegment;
 import org.junit.jupiter.api.Test;
 
 import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.Hl7SegmentBuilder;
