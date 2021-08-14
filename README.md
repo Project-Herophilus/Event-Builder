@@ -1,4 +1,4 @@
-![Maven Build status](https://github.com/Project-Herophilus/Event-Builder/workflows/Maven%20Build/badge.svg)
+![Maven Build status](https://github.com/Project-Herophilus/Event-Builder/workflows/Maven%20Build/badge.svg) [![Event Builder Release](https://github.com/Project-Herophilus/Event-Builder/actions/workflows/release.yml/badge.svg)](https://github.com/Project-Herophilus/Event-Builder/actions/workflows/release.yml) 
 # iDaaS EventBuilder
 iDaaS Event Builder is part of iDaaS DREAM components. However, we decided to move it into its own repository as this project current gets pushed with releases into the maven repository. It is designed to help ANY implementation parse and/or build and/or transform various forms of structures. While most of these structures are healthcare industry standards based there are a growing set of structures/events within Event Builder that are being adopted for usage within implementations.
 related data.
