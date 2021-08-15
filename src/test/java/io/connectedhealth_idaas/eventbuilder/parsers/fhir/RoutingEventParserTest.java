@@ -3,7 +3,7 @@ package io.connectedhealth_idaas.eventbuilder.parsers.fhir;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import io.connectedhealth_idaas.eventbuilder.parsers.hl7v2x.HL7RoutingParser;
-import io.connectedhealth_idaas.eventbuilder.pojos.platform.RoutingEvent;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.platform.RoutingEvent;
 
 import org.junit.jupiter.api.Test;
 

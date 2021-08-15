@@ -1,9 +1,8 @@
 package io.connectedhealth_idaas.eventbuilder.parsers.fhir;
 
 import com.google.gson.Gson;
-import io.connectedhealth_idaas.eventbuilder.pojos.clinical.fhir.AllergyIntoleranceResource.AllergyIntolerance;
-import io.connectedhealth_idaas.eventbuilder.pojos.clinical.fhir.AllergyIntoleranceResource.Note;
-import io.connectedhealth_idaas.eventbuilder.pojos.platform.MessageHeader;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.AllergyIntoleranceResource.AllergyIntolerance;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.AllergyIntoleranceResource.Note;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.List;

@@ -20,7 +20,7 @@ public class GeneralHL7Parser {
 		
 		//Parse Message and build events
 		String[] messageSegments = msgBody.split(HL7SegmentConstants.DEFAULT_SEGMENT_DELIMITER);
-		// System.out.println("Segment Count: " +messageSegments.length);
+		System.out.println("Segment Count: " +messageSegments.length);
 		 
 		for (String segmentDetails : messageSegments) 
 		{

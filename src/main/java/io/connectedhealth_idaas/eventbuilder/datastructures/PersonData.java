@@ -1,6 +1,6 @@
 package io.connectedhealth_idaas.eventbuilder.datastructures;
 
-import io.connectedhealth_idaas.eventbuilder.pojos.general.*;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.general.*;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 public class PersonData {

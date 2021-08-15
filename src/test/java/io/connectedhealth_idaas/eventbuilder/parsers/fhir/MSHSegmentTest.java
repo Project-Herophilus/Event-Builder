@@ -7,9 +7,9 @@ import io.connectedhealth_idaas.eventbuilder.parsers.hl7v2x.MSHSegment;
 import org.junit.jupiter.api.Test;
 
 import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.Hl7SegmentBuilder;
-import io.connectedhealth_idaas.eventbuilder.pojos.clinical.hl7.EVN;
-import io.connectedhealth_idaas.eventbuilder.pojos.clinical.hl7.MSH;
-import io.connectedhealth_idaas.eventbuilder.pojos.platform.MessageHeader;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.hl7.EVN;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.hl7.MSH;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.platform.MessageHeader;
 
 public class MSHSegmentTest {
 
