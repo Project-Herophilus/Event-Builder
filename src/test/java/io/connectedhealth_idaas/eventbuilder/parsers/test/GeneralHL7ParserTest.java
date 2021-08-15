@@ -1,4 +1,4 @@
-package io.connectedhealth_idaas.eventbuilder.parsers.fhir;
+package io.connectedhealth_idaas.eventbuilder.parsers.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

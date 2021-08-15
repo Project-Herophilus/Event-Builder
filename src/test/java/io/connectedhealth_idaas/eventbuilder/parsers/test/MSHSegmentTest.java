@@ -1,9 +1,9 @@
-package io.connectedhealth_idaas.eventbuilder.parsers.fhir;
+package io.connectedhealth_idaas.eventbuilder.parsers.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import io.connectedhealth_idaas.eventbuilder.parsers.hl7v2x.MSHSegment;
+import io.connectedhealth_idaas.eventbuilder.parsers.hl7v2x.HL7Parser;
 import org.junit.jupiter.api.Test;
 
 import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.Hl7SegmentBuilder;
@@ -25,7 +25,7 @@ public class MSHSegmentTest {
             + "IN1||022254P|4558PD|BLUE CROSS|STREET^OTHER STREET^CITY^ST^00990||(333)333-6666||221K|LENIX|||19980515|19990515|||PATIENT01 TEST D||||||||||||||||||02LL|022LP554\r";
         
         MessageHeader mshSegmentDetails;
-        mshSegmentDetails = MSHSegment.parseMSHSegment(msgBody);
+        mshSegmentDetails = HL7Parser.parseHL7MessageToMessageHeader(msgBody);
 
         assertEquals("RIH", mshSegmentDetails.getFacilityId());
         assertEquals("19990414", mshSegmentDetails.getMessageDate());

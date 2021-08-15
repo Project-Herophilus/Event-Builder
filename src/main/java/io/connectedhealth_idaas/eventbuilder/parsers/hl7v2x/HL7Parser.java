@@ -20,7 +20,7 @@ public class HL7Parser {
 
 	private static final Logger LOG = LoggerFactory.getLogger(HL7Parser.class);
 
-	public static MessageHeader parseHL7MessageToMesseageHeader(String body) {
+	public static MessageHeader parseHL7MessageToMessageHeader(String body) {
 		MessageHeader mshHeader = new MessageHeader();
 
 		// Delimiters

@@ -11,7 +11,7 @@ public class HL7RoutingEvent {
         MessageHeader mshHeader = new MessageHeader();
         RoutingEvent routingEvent = new RoutingEvent();
         // Invoke Parser and Build Message Header
-        mshHeader = HL7Parser.parseHL7MessageToMesseageHeader(body);
+        mshHeader = HL7Parser.parseHL7MessageToMessageHeader(body);
         // Create Routing Event and populate object
         routingEvent.setSendingApp(mshHeader.getSendingApp());
         routingEvent.setFacilityId(mshHeader.getFacilityId());

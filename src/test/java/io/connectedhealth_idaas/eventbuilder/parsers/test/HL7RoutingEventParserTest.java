@@ -1,13 +1,13 @@
-package io.connectedhealth_idaas.eventbuilder.parsers.fhir;
+package io.connectedhealth_idaas.eventbuilder.parsers.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import io.connectedhealth_idaas.eventbuilder.parsers.hl7v2x.HL7RoutingParser;
+import io.connectedhealth_idaas.eventbuilder.parsers.hl7v2x.HL7Parser;
 import io.connectedhealth_idaas.eventbuilder.dataobjects.platform.RoutingEvent;
 
 import org.junit.jupiter.api.Test;
 
-public class RoutingEventParserTest {
+public class HL7RoutingEventParserTest {
 
     @Test
     public void parseMSHSegment() {
@@ -20,7 +20,7 @@ public class RoutingEventParserTest {
             + "GT1||0222PL|NOTREAL^BOB^B||STREET^OTHER STREET^CITY^ST^77787|(444)999-3333|(222)777-5555||||MO|111-33-5555||||NOTREAL GILL N|STREET^OTHER STREET^CITY^ST^99999|(111)222-3333\r"
             + "IN1||022254P|4558PD|BLUE CROSS|STREET^OTHER STREET^CITY^ST^00990||(333)333-6666||221K|LENIX|||19980515|19990515|||PATIENT01 TEST D||||||||||||||||||02LL|022LP554\r";
         
-        HL7RoutingParser parser = new HL7RoutingParser();
+        HL7Parser parser = new HL7Parser();
         RoutingEvent msgRoutingEvent = parser.buildRoutingEvent(msgBody);
         
         assertEquals("RIH", msgRoutingEvent.getFacilityId());
