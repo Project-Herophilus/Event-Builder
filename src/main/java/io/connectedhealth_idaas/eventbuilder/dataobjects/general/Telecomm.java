@@ -6,6 +6,7 @@ public class Telecomm {
 
     private String useValue;
     private String displayValue;
+    private String telecommType;
 
     public String getUseValue() {
         return useValue;
@@ -21,6 +22,14 @@ public class Telecomm {
 
     public void setDisplayValue(String displayValue) {
         this.displayValue = displayValue;
+    }
+
+    public String getTelecommType() {
+        return telecommType;
+    }
+
+    public void setTelecommType(String telecommType) {
+        this.telecommType = telecommType;
     }
 
     //toString

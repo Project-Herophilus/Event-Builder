@@ -15,6 +15,7 @@ public class Codeset {
     private String codeType;
     private String applicationName;
     private String organizationName;
+    private String additionalText;
 
     public String getCodeSystemID() {
         return codeSystemID;
@@ -110,6 +111,14 @@ public class Codeset {
 
     public void setOrganizationName(String organizationName) {
         this.organizationName = organizationName;
+    }
+
+    public String getAdditionalText() {
+        return additionalText;
+    }
+
+    public void setAdditionalText(String additionalText) {
+        this.additionalText = additionalText;
     }
 
     //toString
