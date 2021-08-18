@@ -1,5 +1,6 @@
-package io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.AllergyIntoleranceResource;
+package io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.resources;
 
+import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.common.*;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import java.util.List;

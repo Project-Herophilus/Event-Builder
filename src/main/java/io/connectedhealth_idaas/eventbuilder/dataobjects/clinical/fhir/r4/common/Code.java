@@ -1,10 +1,11 @@
-package io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.AllergyIntoleranceResource;
-
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+package io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.common;
 
 import java.util.List;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-public class Manifestation {
+
+public class Code {
+
     public List<Coding> coding;
 
     public List<Coding> getCoding() {

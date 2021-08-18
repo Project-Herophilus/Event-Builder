@@ -1,10 +1,9 @@
-package io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.AllergyIntoleranceResource;
+package io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.common;
 
 import java.util.List;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-
-public class VerificationStatus {
+public class ClinicalStatus {
 
     public List<Coding> coding;
 
@@ -20,5 +19,4 @@ public class VerificationStatus {
     {
         return ReflectionToStringBuilder.toString(this);
     }
-
 }

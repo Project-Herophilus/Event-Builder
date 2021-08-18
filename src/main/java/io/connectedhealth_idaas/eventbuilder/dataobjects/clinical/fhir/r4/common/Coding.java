@@ -1,8 +1,7 @@
-package io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.AllergyIntoleranceResource;
+package io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.common;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-
-public class Tag {
+public class Coding {
 
     public String system;
     public String code;
@@ -24,6 +23,7 @@ public class Tag {
         this.code = code;
     }
 
+
     public String getDisplay() {
         return display;
     }
@@ -32,8 +32,12 @@ public class Tag {
         this.display = display;
     }
 
+
     public String toString()
     {
         return ReflectionToStringBuilder.toString(this);
     }
+
+
+
 }

@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.UUID;
 // ConnectedHealth Imports
-import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.AllergyIntoleranceResource.AllergyIntolerance;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.resources.AllergyIntolerance;
 
 /*
  * Designed to support general parsing of FHIR messages

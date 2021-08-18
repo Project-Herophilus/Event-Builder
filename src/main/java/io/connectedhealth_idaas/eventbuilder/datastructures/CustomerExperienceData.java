@@ -1,7 +1,7 @@
 package io.connectedhealth_idaas.eventbuilder.datastructures;
 
 import io.connectedhealth_idaas.eventbuilder.dataobjects.general.*;
-import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.Location;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.common.Location;
 import io.connectedhealth_idaas.eventbuilder.dataobjects.platform.MessageHeader;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
@@ -52,11 +52,11 @@ public class CustomerExperienceData {
         this.pharmacyTreatmentOrder = pharmacyTreatmentOrder;
     }
 
-    public io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.Location getLocation() {
+    public io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.common.Location getLocation() {
         return Location;
     }
 
-    public void setLocation(io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.Location location) {
+    public void setLocation(io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.common.Location location) {
         Location = location;
     }
 

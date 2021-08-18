@@ -1,7 +1,7 @@
 package io.connectedhealth_idaas.eventbuilder.events.clinical;
 
 
-import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.Location;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.common.Location;
 import io.connectedhealth_idaas.eventbuilder.dataobjects.general.*;
 import io.connectedhealth_idaas.eventbuilder.dataobjects.platform.MessageHeader;
 

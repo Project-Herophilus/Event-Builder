@@ -1,4 +1,4 @@
-package io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir;
+package io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.common;
 
 /*
  * https://www.hl7.org/fhir/adverseevent.html
