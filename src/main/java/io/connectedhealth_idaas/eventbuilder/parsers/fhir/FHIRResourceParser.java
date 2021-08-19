@@ -8,6 +8,9 @@ import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 // ConnectedHealth Imports
 import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.resources.AllergyIntolerance;
@@ -19,7 +22,6 @@ import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.resour
 public class FHIRResourceParser {
 
     private static final Logger LOG = LoggerFactory.getLogger(FHIRResourceParser.class);
-
     /*
      *   Return Generic Message Header based on FHIR Resources
      */
@@ -28,6 +30,11 @@ public class FHIRResourceParser {
         //Create Unique MesageID GUID
         UUID uuid = UUID.randomUUID();
         String uuidstr = uuid.toString();
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy'T'HH:mm:ss'Z'");
+        simpleDateFormat.setTimeZone(java.util.TimeZone.getTimeZone("GMT")); 
+        String fullDate = simpleDateFormat.format(date);
+        Long hour = (long)(date.getTime() % 86400000) / 3600000;
 
         MessageHeader mshHeader = new MessageHeader();
         if(fhirResourceName.equals("AllergyIntolerence"))
@@ -41,10 +48,10 @@ public class FHIRResourceParser {
             mshHeader.setMessageEvent(allergy.getResourceType());
             mshHeader.setMessageId(uuidstr);
             mshHeader.setMessageVersion("R4");
-            mshHeader.setFacilityId(allergy.getId());
-            mshHeader.setMessageDate(allergy.getRecordedDate());
-            mshHeader.setMessageHour(allergy.getRecordedDate().substring(11, 13));
-            mshHeader.setMessageTime(allergy.getRecordedDate().substring(11, 19));
+            mshHeader.setFacilityId("UNK");
+            mshHeader.setMessageDate(fullDate);
+            mshHeader.setMessageHour(hour.toString());
+            mshHeader.setMessageTime(fullDate.split("T")[1]);
 
         }
 
