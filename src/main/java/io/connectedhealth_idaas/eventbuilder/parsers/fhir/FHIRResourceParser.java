@@ -1,6 +1,8 @@
 package io.connectedhealth_idaas.eventbuilder.parsers.fhir;
 
 //Common Imports
+import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.resources.Encounter;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.resources.Patient;
 import io.connectedhealth_idaas.eventbuilder.dataobjects.platform.MessageHeader;
 import com.google.gson.Gson;
 import org.slf4j.Logger;
@@ -46,6 +48,41 @@ public class FHIRResourceParser {
 
         }
 
+        if(fhirResourceName.equals("Encounter"))
+        {
+            Gson gson = new Gson();
+            Encounter encounter = new Encounter();
+            encounter = gson.fromJson(body, Encounter.class);
+            //String messageEvent = allergy.getText().getStatus();
+            mshHeader.setIndustryStd("FHIR");
+            mshHeader.setMessageType("Clinical");
+            mshHeader.setMessageEvent(encounter.getResourceType());
+            mshHeader.setMessageId(uuidstr);
+            mshHeader.setMessageVersion("R4");
+            mshHeader.setFacilityId(encounter.getLocation().toString());
+            mshHeader.setMessageDate(encounter.getStatusData());
+            //mshHeader.setMessageHour(allergy.getRecordedDate().substring(11, 13));
+            //mshHeader.setMessageTime(allergy.getRecordedDate().substring(11, 19));
+
+        }
+
+        if(fhirResourceName.equals("Patient"))
+        {
+            Gson gson = new Gson();
+            Patient patient = new Patient();
+            patient = gson.fromJson(body, Patient.class);
+            //String messageEvent = allergy.getText().getStatus();
+            mshHeader.setIndustryStd("FHIR");
+            mshHeader.setMessageType("Clinical");
+            mshHeader.setMessageEvent(patient.getResourceType());
+            mshHeader.setMessageId(uuidstr);
+            mshHeader.setMessageVersion("R4");
+            //mshHeader.setFacilityId(patient.getLocation().toString());
+            //mshHeader.setMessageDate(patient.getStatusData());
+            //mshHeader.setMessageHour(allergy.getRecordedDate().substring(11, 13));
+            //mshHeader.setMessageTime(allergy.getRecordedDate().substring(11, 19));
+
+        }
         return mshHeader;
     }
 
