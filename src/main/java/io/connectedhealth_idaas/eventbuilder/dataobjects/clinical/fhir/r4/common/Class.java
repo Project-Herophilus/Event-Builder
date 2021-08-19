@@ -1,15 +1,9 @@
 package io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.common;
 
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-
-import java.util.List;
-
-public class Coding {
-
+public class Class {
     public String system;
     public String code;
     public String display;
-    public List<Extension> extension;
 
     public String getSystem() {
         return system;
@@ -27,7 +21,6 @@ public class Coding {
         this.code = code;
     }
 
-
     public String getDisplay() {
         return display;
     }
@@ -35,20 +28,4 @@ public class Coding {
     public void setDisplay(String display) {
         this.display = display;
     }
-
-    public List<Extension> getExtension() {
-        return extension;
-    }
-
-    public void setExtension(List<Extension> extension) {
-        this.extension = extension;
-    }
-
-    public String toString()
-    {
-        return ReflectionToStringBuilder.toString(this);
-    }
-
-
-
 }
