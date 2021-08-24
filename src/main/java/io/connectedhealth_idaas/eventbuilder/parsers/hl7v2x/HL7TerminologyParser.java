@@ -11,8 +11,7 @@ import java.util.ListIterator;
 
 public class HL7TerminologyParser {
 
-    public static List<Codeset> hl7ParseTermsForProcessingToObject(String msgType, String body){
-        Gson gson = new Gson();
+    public static List<Codeset> hl7ParseTermsForProcessingToObject(String body){
         //Instantiate Structures and Events
         List<Codeset> terminologyCodes = new ArrayList<Codeset>();
         MessageHeader mshHeader = new MessageHeader();
