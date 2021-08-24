@@ -9,8 +9,10 @@ import io.connectedhealth_idaas.eventbuilder.dataobjects.general.Codeset;
 import io.connectedhealth_idaas.eventbuilder.parsers.fhir.FHIRTerminologyParser;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 
 public class FHIRTerminologyProcessorEvent {
 
@@ -62,6 +64,7 @@ public class FHIRTerminologyProcessorEvent {
         while(codingListIterator.hasNext())
         {
             // Per Code
+            String codeDataLocation = "code.Coding";
             Coding codeData = codingListIterator.next();
             cpEvent.setApplicationName(mshHeader.getSendingApp());
             cpEvent.setIndustryStd(mshHeader.getIndustryStd());
@@ -70,6 +73,8 @@ public class FHIRTerminologyProcessorEvent {
             cpEvent.setCodeSystemID(codeData.getSystem());
             cpEvent.setCodeSystemID(codeData.getSystem());
             cpEvent.setCodeValue(codeData.getCode());
+            cpEvent.setCodeValue(codeData.getCode());
+            cpEvent.setCodeDataLocation(codeDataLocation);
             // cpEvent.setCodeSystemID(codeData.getExtension().toString());
             terminologyCodes.add(cpEvent);
         }
@@ -103,6 +108,9 @@ public class FHIRTerminologyProcessorEvent {
             // cpEvent.setCodeSystemID(codeData.getExtension().toString());
             terminologyCodes.add(cpEvent3);
         }
+        final Map<String, Object> response = new HashMap<>();
+        response.put("header", mshHeader);
+        response.put("terminologies", terminologyCodes);
         return new Gson().toJson(terminologyCodes);
     }
 }

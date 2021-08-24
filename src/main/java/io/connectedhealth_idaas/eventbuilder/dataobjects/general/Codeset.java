@@ -16,6 +16,7 @@ public class Codeset {
     private String applicationName;
     private String organizationName;
     private String additionalText;
+    private String codeDataLocation;
 
     public String getCodeSystemID() {
         return codeSystemID;
@@ -121,9 +122,16 @@ public class Codeset {
         this.additionalText = additionalText;
     }
 
-    //toString
+    public void setCodeDataLocation(String codeDataLocation ) {
+        this.codeDataLocation = codeDataLocation;
+    }
+    public String getCodeDataLocation() {
+        return codeDataLocation;
+    }
+   //toString
     public String toString()
     {
         return ReflectionToStringBuilder.toString(this);
     }
+
 }
