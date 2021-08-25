@@ -16,7 +16,6 @@ import io.connectedhealth_idaas.eventbuilder.converters.ccda.conf.Config;
 import io.connectedhealth_idaas.eventbuilder.converters.ccda.transform.CCDTransformerImpl;
 import io.connectedhealth_idaas.eventbuilder.converters.ccda.transform.ICDATransformer;
 import io.connectedhealth_idaas.eventbuilder.converters.ccda.util.IdGeneratorEnum;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -46,6 +45,13 @@ public class CdaConversionService {
       identifier.setValue("Data Processing Engine");
 
       Bundle bundle = ccdTransformer.transformDocument(ccd, cdaXML, identifier);
+      try{
+        org.hl7.fhir.r4.model.Bundle bundleR4 = org.hl7.fhir.convertors.conv30_40.resources30_40.Bundle30_40.convertBundle(bundle);
+        System.out.println("New R4 Bundle" + bundleR4.toString());
+      }
+      catch(Exception e){
+        System.out.println("Exception" + e);
+      }
       IParser jsonParser = Config.getFhirContext().newJsonParser();
       fhir = jsonParser.encodeResourceToString(bundle);
     } catch (Exception e) {

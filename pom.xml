@@ -147,6 +147,17 @@
 			<artifactId>hapi-fhir-validation-resources-dstu3</artifactId>
 			<version>5.4.2</version>
 		</dependency>
+		<dependency>
+			<groupId>ca.uhn.hapi.fhir</groupId>
+			<artifactId>org.hl7.fhir.core</artifactId>
+			<version>5.1.7</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>ca.uhn.hapi.fhir</groupId>
+			<artifactId>org.hl7.fhir.convertors</artifactId>
+			<version>5.4.9</version>
+		</dependency>
 	</dependencies>
 
 	<build>
