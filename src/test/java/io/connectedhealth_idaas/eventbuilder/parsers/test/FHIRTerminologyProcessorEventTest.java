@@ -1,13 +1,13 @@
 package io.connectedhealth_idaas.eventbuilder.parsers.test;
 
-import io.connectedhealth_idaas.eventbuilder.parsers.fhir.FHIRGenericParsing;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.general.Codeset;
+import io.connectedhealth_idaas.eventbuilder.parsers.fhir.FHIRTerminologyParser;
+import io.connectedhealth_idaas.eventbuilder.parsers.hl7v2x.HL7TerminologyParser;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static io.connectedhealth_idaas.eventbuilder.parsers.fhir.FHIRGenericParsing.parseFHIRMessage;
-
-public class FHIRParserTest {
+public class FHIRTerminologyProcessorEventTest {
     @Test
     public void parseFHIRTerminologies() {
         String msgBody = "{\n" +
@@ -139,8 +139,9 @@ public class FHIRParserTest {
                 "  }\n" +
                 "}";
 
-        FHIRGenericParsing parser = new FHIRGenericParsing();
+        FHIRTerminologyParser parser = new FHIRTerminologyParser();
         String fhirResourceName="AllergyIntolerence";
-        parseFHIRMessage(fhirResourceName, msgBody);
+        List<Codeset> fhirTerms = parser.fhirParseTermsForProcessingToObject(fhirResourceName, msgBody);
+        String fhirTerms2 = parser.fhirParseTermsForProcessingToJSON(fhirResourceName, msgBody);
     }
 }

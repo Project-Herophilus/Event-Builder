@@ -20,10 +20,6 @@ public class FHIRTerminologyProcessorEvent {
         Gson gson = new Gson();
         MessageHeader mshHeader = new MessageHeader();
         Codeset cpEvent = new Codeset();
-        // Invoke Parser and Build Message Header
-        mshHeader = FHIRResourceParser.parseFHIRMessageToMesseageHeader(fhirResourceName, body);
-        // Create Terminology Event and populate object
-        // Goal Here would be to pass in detailed resource and not have to do if logic
         AllergyIntolerance allergy = gson.fromJson(body, AllergyIntolerance.class);
         //Instantiate Structures and Events
         List<Codeset> terminologyCodes = new ArrayList<Codeset>();
@@ -34,14 +30,13 @@ public class FHIRTerminologyProcessorEvent {
         Gson gson = new Gson();
         MessageHeader mshHeader = new MessageHeader();
         Codeset cpEvent = new Codeset();
-        // Invoke Parser and Build Message Header
-        mshHeader = FHIRResourceParser.parseFHIRMessageToMesseageHeader(fhirResourceName, body);
-        // Create Terminology Event and populate object
-        // Goal Here would be to pass in detailed resource and not have to do if logic
         AllergyIntolerance allergy = gson.fromJson(body, AllergyIntolerance.class);
         //Instantiate Structures and Events
         String terminologyCodes = FHIRTerminologyParser.fhirParseTermsForProcessingToJSON(fhirResourceName, body);
-        return terminologyCodes;
+        final Map<String, Object> response = new HashMap<>();
+        response.put("header", mshHeader);
+        response.put("terminologies", terminologyCodes);
+        return new Gson().toJson(terminologyCodes);
     }
 
     public String fhirBuildTermsForProcessing2 (String fhirResourceName, String body){

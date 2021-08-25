@@ -109,7 +109,6 @@ public class FHIRTerminologyParser {
                 terminologyCodes.add(cpEvent3);
             }
         }
-
         // Return JSON Object Representation
         return new Gson().toJson(terminologyCodes);
     }
