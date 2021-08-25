@@ -1,6 +1,8 @@
 package io.connectedhealth_idaas.eventbuilder.parsers.hl7v2x;
 
 import com.google.gson.Gson;
+
+
 import io.connectedhealth_idaas.eventbuilder.builders.hl7.common.HL7SegmentConstants;
 import io.connectedhealth_idaas.eventbuilder.dataobjects.general.Codeset;
 import io.connectedhealth_idaas.eventbuilder.dataobjects.platform.MessageHeader;
@@ -8,10 +10,13 @@ import io.connectedhealth_idaas.eventbuilder.dataobjects.platform.MessageHeader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HL7TerminologyParser {
+    private static final Logger LOG = LoggerFactory.getLogger(HL7TerminologyParser.class);
 
-    public static List<Codeset> hl7ParseTermsForProcessingToObject(String body){
+    public static List<Codeset> hl7ParseTermsForProcessing(String body){
         //Instantiate Structures and Events
         List<Codeset> terminologyCodes = new ArrayList<Codeset>();
         MessageHeader mshHeader = new MessageHeader();
@@ -27,18 +32,20 @@ public class HL7TerminologyParser {
 
             if (messageSegments[i].toString().substring(0,3).equals("AL1"))
             {
-                String messageData = messageSegments[i].toString();
+                String segmentData = messageSegments[i].toString();
                 // One Per item - Should have a look up against the refdata_codeset values
-                String[] al1SegmentData = messageData.split(HL7SegmentConstants.DEFAULT_FIELD_DELIMITER);
+                String[] allSegmentData = segmentData.split("["+HL7SegmentConstants.DEFAULT_FIELD_DELIMITER+"]");
                 // Per Code
+                // AL1|1|DA|TZ1^Thioridazine HCl^From MELLARIL|SV|rash|20210523
                 //AL1-2 = al1SegmentData[2].toString();
                 //AL1-3 = al1SegmentData[3].toString();
                 cpEvent.setApplicationName(mshHeader.getSendingApp());
                 cpEvent.setIndustryStd(mshHeader.getIndustryStd());
-                //cpEvent.setDisplayName(codeData.getDisplay());
-                //cpEvent.setCodeSystemID(codeData.getSystem());
-                //cpEvent.setCodeValue(codeData.getCode());
-                // cpEvent.setCodeSystemID(codeData.getExtension().toString());
+                String[] allergyCodeDetail = allSegmentData[3].toString().split("^");
+                cpEvent.setDisplayName(allergyCodeDetail[0].toString().split("['^']")[1]);
+//                cpEvent.setCodeSystemID(codeData.getSystem());
+                cpEvent.setCodeValue(allergyCodeDetail[0].toString().split("['^']")[0]);
+//                 cpEvent.setCodeSystemID(codeData.getExtension().toString());
                 terminologyCodes.add(cpEvent);
             }
         }
