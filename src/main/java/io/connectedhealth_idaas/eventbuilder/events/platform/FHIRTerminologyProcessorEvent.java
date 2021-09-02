@@ -59,7 +59,7 @@ public class FHIRTerminologyProcessorEvent {
         while(codingListIterator.hasNext())
         {
             // Per Code
-            String codeDataLocation = "code.Coding";
+            String codeDataLocation = "medication.coding";
             Coding codeData = codingListIterator.next();
             cpEvent.setApplicationName(mshHeader.getSendingApp());
             cpEvent.setIndustryStd(mshHeader.getIndustryStd());
@@ -77,6 +77,7 @@ public class FHIRTerminologyProcessorEvent {
         while(codingListIterator1.hasNext())
         {
             // Per Code
+            String codeDataLocation = "verificationStatus.Coding";
             Coding codeData = codingListIterator1.next();
             cpEvent2.setApplicationName(mshHeader.getSendingApp());
             cpEvent2.setIndustryStd(mshHeader.getIndustryStd());
@@ -85,6 +86,7 @@ public class FHIRTerminologyProcessorEvent {
             cpEvent2.setCodeSystemID(codeData.getSystem());
             cpEvent2.setCodeSystemID(codeData.getSystem());
             cpEvent2.setCodeValue(codeData.getCode());
+            cpEvent.setCodeDataLocation(codeDataLocation);
             // cpEvent.setCodeSystemID(codeData.getExtension().toString());
             terminologyCodes.add(cpEvent2);
         }
@@ -92,6 +94,7 @@ public class FHIRTerminologyProcessorEvent {
         while(codingListIterator2.hasNext())
         {
             // Per Code
+            String codeDataLocation = "clinicalStatus.coding";
             Coding codeData = codingListIterator2.next();
             cpEvent3.setApplicationName(mshHeader.getSendingApp());
             cpEvent3.setIndustryStd(mshHeader.getIndustryStd());
@@ -100,6 +103,7 @@ public class FHIRTerminologyProcessorEvent {
             cpEvent3.setCodeSystemID(codeData.getSystem());
             cpEvent3.setCodeSystemID(codeData.getSystem());
             cpEvent3.setCodeValue(codeData.getCode());
+            cpEvent.setCodeDataLocation(codeDataLocation);
             // cpEvent.setCodeSystemID(codeData.getExtension().toString());
             terminologyCodes.add(cpEvent3);
         }

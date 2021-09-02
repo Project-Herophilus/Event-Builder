@@ -105,6 +105,7 @@ public class FHIRTerminologyParser {
                 cpEvent3.setCodeSystemID(codeData.getSystem());
                 cpEvent3.setCodeSystemID(codeData.getSystem());
                 cpEvent3.setCodeValue(codeData.getCode());
+
                 // cpEvent.setCodeSystemID(codeData.getExtension().toString());
                 terminologyCodes.add(cpEvent3);
             }

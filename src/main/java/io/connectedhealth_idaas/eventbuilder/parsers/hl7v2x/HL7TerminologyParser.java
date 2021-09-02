@@ -21,27 +21,22 @@ public class HL7TerminologyParser {
         //String componentDelimiter = "['+HL7SegmentConstants.DEFAULT_SUBFIELD_DELIMITER+']";
         //Instantiate Structures and Events
         List<Codeset> terminologyCodes = new ArrayList<Codeset>();
-        MessageHeader mshHeader = new MessageHeader();
-        Codeset cpEvent = new Codeset();
-        // Invoke Parser and Build Message Header
-        mshHeader = HL7Parser.parseHL7MessageToMessageHeader(body);
         // Create Terminology Event and populate object
         String[] messageSegments = body.split(HL7SegmentConstants.DEFAULT_SEGMENT_DELIMITER);
         for (int i=0; i< messageSegments.length; i++) {
            // Will need to define application and Org Logic to pair down artifact matches these code from
           //  mshHeader
 
-            if (messageSegments[i].toString().substring(0,3).equals("AL1"))
-            {
+            if (messageSegments[i].toString().substring(0,3).equals("AL1")) {
+                Codeset cpEvent = new Codeset();
                 String segmentData = messageSegments[i].toString();
                 // One Per item - Should have a look up against the refdata_codeset values
-                String[] al1SegmentData = segmentData.split("["+HL7SegmentConstants.DEFAULT_FIELD_DELIMITER+"]");
+                String[] al1SegmentData = segmentData.split("[" + HL7SegmentConstants.DEFAULT_FIELD_DELIMITER + "]");
                 // Per Code
-                cpEvent.setApplicationName(mshHeader.getSendingApp());
-                cpEvent.setIndustryStd(mshHeader.getIndustryStd());
-                cpEvent.setCodeDataLocation("AL1-3");
+                // TODO pass from in-memory configuration
+                cpEvent.setCodeDataLocation("AL1.3");
                 // Push Specific code to string
-                String allergySpecificDetail= al1SegmentData[3].toString();
+                String allergySpecificDetail = al1SegmentData[3].toString();
                 // Parse String
                 // String[] allergyCodeDesc = allergySpecificDetail.split(componentDelimiter);
                 String[] allergyCodeDetail = al1SegmentData[3].toString().split("['^']");
