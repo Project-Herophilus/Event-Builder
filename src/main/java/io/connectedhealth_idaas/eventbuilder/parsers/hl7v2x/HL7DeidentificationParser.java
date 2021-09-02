@@ -6,7 +6,7 @@ import io.connectedhealth_idaas.eventbuilder.dataobjects.platform.MessageHeader;
 
 public class HL7DeidentificationParser {
 
-    public static void processHL7DataForDeidentifcation(String body) {
+    public static DeIdentification processHL7DataForDeidentifcation(String body) {
         MessageHeader mshHeader = new MessageHeader();
         DeIdentification deIdentificationRecord = new DeIdentification();
 
@@ -25,6 +25,7 @@ public class HL7DeidentificationParser {
 
             }
         }
+        return deIdentificationRecord;
     }
 
     public static DeIdentification parseAL1(String body, DeIdentification deIdentificationRecord)
