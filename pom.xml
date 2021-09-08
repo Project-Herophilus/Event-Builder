@@ -158,6 +158,16 @@
 			<artifactId>org.hl7.fhir.convertors</artifactId>
 			<version>5.4.9</version>
 		</dependency>
+		<dependency>
+			<groupId>com.bazaarvoice.jolt</groupId>
+			<artifactId>jolt-core</artifactId>
+			<version>0.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bazaarvoice.jolt</groupId>
+			<artifactId>json-utils</artifactId>
+			<version>0.1.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
