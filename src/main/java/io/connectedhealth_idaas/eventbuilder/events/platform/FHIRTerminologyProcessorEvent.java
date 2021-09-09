@@ -110,6 +110,6 @@ public class FHIRTerminologyProcessorEvent {
         final Map<String, Object> response = new HashMap<>();
         response.put("header", mshHeader);
         response.put("terminologies", terminologyCodes);
-        return new Gson().toJson(terminologyCodes);
+        return new Gson().toJson(response);
     }
 }
