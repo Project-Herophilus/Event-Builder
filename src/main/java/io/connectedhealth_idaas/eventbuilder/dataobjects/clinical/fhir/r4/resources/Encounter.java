@@ -19,6 +19,7 @@ public class Encounter {
     public Hospitalization hospitalization;
     public List<Location> location;
     public Meta meta;
+    public List<Type> type;
 
     public String getResourceType() {
         return resourceType;
@@ -114,5 +115,13 @@ public class Encounter {
 
     public void setMeta(Meta meta) {
         this.meta = meta;
+    }
+
+    public List<Type> getType() {
+        return type;
+    }
+
+    public void setType(List<Type> type) {
+        this.type = type;
     }
 }

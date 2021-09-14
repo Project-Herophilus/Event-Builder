@@ -1,0 +1,1 @@
+package io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.resources;import io.connectedhealth_idaas.eventbuilder.dataobjects.clinical.fhir.r4.common.Entry;import java.lang.reflect.Array;import java.util.List;public class Bundle {    public String resourceType;    public List<Entry> entry;}

@@ -49,6 +49,7 @@ public class FHIRResourceParser {
             mshHeader.setMessageId(uuidstr);
             mshHeader.setMessageVersion("R4");
             mshHeader.setFacilityId("UNK");
+            mshHeader.setSendingApp(("UNDF"));
             mshHeader.setMessageDate(fullDate);
             mshHeader.setMessageHour(hour.toString());
             mshHeader.setMessageTime(fullDate.split("T")[1]);

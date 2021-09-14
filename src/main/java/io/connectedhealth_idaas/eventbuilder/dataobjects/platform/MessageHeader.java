@@ -1,6 +1,10 @@
 package io.connectedhealth_idaas.eventbuilder.dataobjects.platform;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.general.Application;
+import io.connectedhealth_idaas.eventbuilder.dataobjects.general.Organization;
+
+import java.util.List;
 
 /*
  * @author Alan Scott
@@ -24,6 +28,8 @@ public class MessageHeader {
   private String messageVersion;
   private String messageVendor;
   private String industryStd;
+  private List<Application> applications;
+  private List<Organization> organization;
 
 
   public String getSendingApp() {
@@ -128,6 +134,22 @@ public String getMessageType() {
 
   public void setIndustryStd(String industryStd) {
     this.industryStd = industryStd;
+  }
+
+  public List<Application> getApplications() {
+    return applications;
+  }
+
+  public void setApplications(List<Application> applications) {
+    this.applications = applications;
+  }
+
+  public List<Organization> getOrganization() {
+    return organization;
+  }
+
+  public void setOrganization(List<Organization> organization) {
+    this.organization = organization;
   }
 
   //toString

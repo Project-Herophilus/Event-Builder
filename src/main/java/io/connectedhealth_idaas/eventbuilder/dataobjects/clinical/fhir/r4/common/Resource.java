@@ -9,6 +9,7 @@ public class Resource {
     public Meta meta;
     public Text text;
     public List<Identifier> identifier;
+    public List<Type> type;
     public boolean active;
     public List<Name> name;
     public String gender;
@@ -89,6 +90,14 @@ public class Resource {
 
     public ManagingOrganization getManagingOrganization() {
         return managingOrganization;
+    }
+
+    public List<Type> getType() {
+        return type;
+    }
+
+    public void setType(List<Type> type) {
+        this.type = type;
     }
 
     public void setManagingOrganization(ManagingOrganization managingOrganization) {
