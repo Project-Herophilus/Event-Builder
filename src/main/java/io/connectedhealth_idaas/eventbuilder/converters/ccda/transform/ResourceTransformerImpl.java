@@ -3789,13 +3789,13 @@ public class ResourceTransformerImpl implements IResourceTransformer, Serializab
 		provenance.setRecorded(now);
 
 		// document reference
-		DocumentReference documentReference = tDocumentReference(documentBody);
-		bundle.addEntry(new BundleEntryComponent().setResource(documentReference));
-
-		ProvenanceEntityComponent pec = new ProvenanceEntityComponent();
-		pec.setRole(ProvenanceEntityRole.SOURCE);
-		pec.setWhat(getReference(documentReference));
-		provenance.addEntity(pec);
+//		DocumentReference documentReference = tDocumentReference(documentBody);
+//		bundle.addEntry(new BundleEntryComponent().setResource(documentReference));
+//
+//		ProvenanceEntityComponent pec = new ProvenanceEntityComponent();
+//		pec.setRole(ProvenanceEntityRole.SOURCE);
+//		pec.setWhat(getReference(documentReference));
+//		provenance.addEntity(pec);
 
 		// device
 		Device device = tDevice(assemblerDevice);
