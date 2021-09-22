@@ -27,7 +27,7 @@ so feel fee to look up iDaaS Event Builder in Maven Repository to make sure you 
    <dependency>
             <groupId>io.connectedhealth-idaas</groupId>
             <artifactId>idaas-eventbuilder</artifactId>
-            <version>2.2.0</version>
+            <version>2.2.6</version>
    </dependency>
 ```
 
