@@ -1,16 +1,16 @@
 package io.connectedhealth_idaas.eventbuilder.converters.ccda.conf;
 
+
 import java.nio.charset.Charset;
-//need to update to r4 instead of dtsu
-import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceClinicalStatus;
-import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceVerificationStatus;
-import org.hl7.fhir.dstu3.model.Coding;
-import org.hl7.fhir.dstu3.model.Composition.CompositionStatus;
-import org.hl7.fhir.dstu3.model.Condition.ConditionVerificationStatus;
-import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.dstu3.model.Encounter.EncounterStatus;
-import org.hl7.fhir.dstu3.model.Identifier.IdentifierUse;
-import org.hl7.fhir.dstu3.model.MedicationStatement.MedicationStatementStatus;
+
+
+import org.hl7.fhir.r4.model.Coding;
+import org.hl7.fhir.r4.model.CodeableConcept;
+import org.hl7.fhir.r4.model.Composition.CompositionStatus;
+import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.r4.model.Encounter.EncounterStatus;
+import org.hl7.fhir.r4.model.Identifier.IdentifierUse;
+import org.hl7.fhir.r4.model.MedicationStatement.MedicationStatementStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,9 +45,10 @@ public class Config {
 	// Default values for some mandatory attributes, which cannot be retrieved from
 	// CDA document
 	public static final String DEFAULT_COMMUNICATION_LANGUAGE_CODE_SYSTEM = "urn:ietf:bcp:47";
-	public static final ConditionVerificationStatus DEFAULT_CONDITION_VERIFICATION_STATUS = ConditionVerificationStatus.CONFIRMED;
-	public static final AllergyIntoleranceVerificationStatus DEFAULT_ALLERGY_VERIFICATION_STATUS = AllergyIntoleranceVerificationStatus.UNCONFIRMED;
-	public static final AllergyIntoleranceClinicalStatus DEFAULT_ALLERGY_CLINICAL_STATUS = AllergyIntoleranceClinicalStatus.ACTIVE;
+	public static final CodeableConcept DEFAULT_CONDITION_VERIFICATION_STATUS = new CodeableConcept(new Coding("http://terminology.hl7.org/CodeSystem/condition-ver-status", "confirmed", "Confirmed"));
+	public static final CodeableConcept DEFAULT_ALLERGY_VERIFICATION_STATUS = new CodeableConcept(new Coding("http://terminology.hl7.org/CodeSystem/allergyintolerance-verification", "unconfirmed", "Unconfirmed"));
+	public static final CodeableConcept DEFAULT_ALLERGY_CLINICAL_STATUS = new CodeableConcept(new Coding("http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical", "active", "Active"));
+	
 	public static final MedicationStatementStatus DEFAULT_MEDICATION_STATEMENT_STATUS = MedicationStatementStatus.ACTIVE;
 	public static final CompositionStatus DEFAULT_COMPOSITION_STATUS = CompositionStatus.PRELIMINARY;
 	public static final IdentifierUse DEFAULT_IDENTIFIER_USE = IdentifierUse.OFFICIAL;
@@ -67,11 +68,15 @@ public class Config {
 	private static INarrativeGenerator narrativeGenerator;
 
 	private static boolean generateDafProfileMetadata = false;
+	
+	private static boolean addedZerosToDateTime = false;
+	
+	private static boolean isTransactionBundle = false;
 
 	private static final Logger logger = LoggerFactory.getLogger(Config.class);
 
 	static {
-		fhirCtx = FhirContext.forDstu3();
+		fhirCtx = FhirContext.forR4();
 		narrativeGenerator = new CustomThymeleafNarrativeGenerator(NARRATIVE_PROPERTIES_FILE_PATH);
 		if (generateNarrative)
 			fhirCtx.setNarrativeGenerator(narrativeGenerator);
@@ -101,6 +106,22 @@ public class Config {
 
 	public static boolean isGenerateDafProfileMetadata() {
 		return generateDafProfileMetadata;
+	}
+	
+	public static void setAddedZerosToDateTime(boolean addedZerosToDateTimeValue) {
+		addedZerosToDateTime = addedZerosToDateTimeValue;
+	}
+
+	public static boolean addedZerosToDateTime() {
+		return addedZerosToDateTime;
+	}
+	
+	public static boolean getIsTransactionBundle() {
+		return isTransactionBundle;
+	}
+	
+	public static void setIsTransactionBundle(boolean transactionBundle) {
+		isTransactionBundle = transactionBundle;
 	}
 
 }

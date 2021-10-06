@@ -1,6 +1,6 @@
 package io.connectedhealth_idaas.eventbuilder.converters.ccda.transform.section.impl;
 
-import org.hl7.fhir.dstu3.model.Procedure;
+import org.hl7.fhir.r4.model.Procedure;
 import org.openhealthtools.mdht.uml.cda.consol.ProcedureActivityProcedure;
 import org.openhealthtools.mdht.uml.cda.consol.ProceduresSection;
 

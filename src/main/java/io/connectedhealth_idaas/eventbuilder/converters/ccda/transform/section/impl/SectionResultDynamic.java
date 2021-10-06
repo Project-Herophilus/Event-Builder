@@ -3,8 +3,8 @@ package io.connectedhealth_idaas.eventbuilder.converters.ccda.transform.section.
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.r4.model.Bundle;
+import org.hl7.fhir.r4.model.Resource;
 
 import io.connectedhealth_idaas.eventbuilder.converters.ccda.transform.entry.IEntryResult;
 import io.connectedhealth_idaas.eventbuilder.converters.ccda.util.FHIRUtil;

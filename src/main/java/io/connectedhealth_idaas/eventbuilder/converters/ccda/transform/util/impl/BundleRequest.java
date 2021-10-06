@@ -3,15 +3,15 @@ package io.connectedhealth_idaas.eventbuilder.converters.ccda.transform.util.imp
 import java.util.List;
 import java.util.ResourceBundle;
 
-import org.hl7.fhir.dstu3.model.Base;
-import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.dstu3.model.Bundle.BundleEntryRequestComponent;
-import org.hl7.fhir.dstu3.model.Bundle.HTTPVerb;
-import org.hl7.fhir.dstu3.model.CodeableConcept;
-import org.hl7.fhir.dstu3.model.Coding;
-import org.hl7.fhir.dstu3.model.Identifier;
-import org.hl7.fhir.dstu3.model.PractitionerRole;
-import org.hl7.fhir.dstu3.model.Property;
+import org.hl7.fhir.r4.model.Base;
+import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r4.model.Bundle.BundleEntryRequestComponent;
+import org.hl7.fhir.r4.model.Bundle.HTTPVerb;
+import org.hl7.fhir.r4.model.CodeableConcept;
+import org.hl7.fhir.r4.model.Coding;
+import org.hl7.fhir.r4.model.Identifier;
+import org.hl7.fhir.r4.model.PractitionerRole;
+import org.hl7.fhir.r4.model.Property;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -138,6 +138,25 @@ public class BundleRequest {
 					}
 				}
 			}
+			if (bundleEntry.getResource().getResourceType().name() == "Organization") {
+				Property orgNames = bundleEntry.getResource().getChildByName("name");
+				if (orgNames != null) {
+					List<Base> nameList = orgNames.getValues();
+					for(Base entry: nameList) {
+						String name = entry.primitiveValue();
+						if(name != null && !name.isEmpty()) {
+							if (ifNotExistString != "") {
+								ifNotExistString = ifNotExistString + ",";
+							} else {
+								ifNotExistString = "identifier=";
+							}
+							ifNotExistString = ifNotExistString + name.replaceAll(" ", "").toLowerCase();
+						}
+						
+					}
+				}
+			}
+			
 
 			// if it's a practitioner role, de-duplicate by reference ids.
 			if (bundleEntry.getResource().getResourceType().name() == "PractitionerRole") {
