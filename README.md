@@ -3,6 +3,9 @@
 iDaaS Event Builder is part of iDaaS DREAM components. However, we decided to move it into its own repository as this project current gets pushed with releases into the maven repository. It is designed to help ANY implementation parse and/or build and/or transform various forms of structures. While most of these structures are healthcare industry standards based there are a growing set of structures/events within Event Builder that are being adopted for usage within implementations.
 related data.
 
+## Known Issues
+We have seen issues with uses running Windows OS machines and cloning or downloading the source code. It appears some of the classes might be reserved words in the Windows OS.
+
 ## Pre-Requisites
 iDAAS EventBuilder Pre-Requisites merely focus around JDK, currently JDK version 11 is the main standard support it to implement it with this community as that's the current JDSK supported by several of the upstream projects we use. However, it has been compiled with numerous other JDKs and has been used independtly of our community specific efforts as well.
 
