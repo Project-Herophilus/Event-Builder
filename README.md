@@ -1,7 +1,11 @@
 [![Java Build on Code Check-In with Maven](https://github.com/Project-Herophilus/Event-Builder/actions/workflows/base-maven-build.yml/badge.svg)](https://github.com/Project-Herophilus/Event-Builder/actions/workflows/base-maven-build.yml) [![Event Builder Release](https://github.com/Project-Herophilus/Event-Builder/actions/workflows/release.yml/badge.svg)](https://github.com/Project-Herophilus/Event-Builder/actions/workflows/release.yml) 
+
 # iDaaS EventBuilder
-iDaaS Event Builder is part of iDaaS DREAM components. However, we decided to move it into its own repository as this project current gets pushed with releases into the maven repository. It is designed to help ANY implementation parse and/or build and/or transform various forms of structures. While most of these structures are healthcare industry standards based there are a growing set of structures/events within Event Builder that are being adopted for usage within implementations.
+iDaaS Event Builder while part of iDaaS DREAM components exists in its own upstream code repository. It is designed to help ANY implementation parse and/or build and/or transform various forms of structures. While most of these structures are healthcare industry standards based there are a growing set of structures/events within Event Builder that are being adopted for usage within implementations.
 related data.
+
+## Known Issues
+We have seen issues with uses running Windows OS machines and cloning or downloading the source code. It appears some of the classes might be reserved words in the Windows OS.
 
 ## Pre-Requisites
 iDAAS EventBuilder Pre-Requisites merely focus around JDK, currently JDK version 11 is the main standard support it to implement it with this community as that's the current JDSK supported by several of the upstream projects we use. However, it has been compiled with numerous other JDKs and has been used independtly of our community specific efforts as well.
@@ -27,7 +31,7 @@ so feel fee to look up iDaaS Event Builder in Maven Repository to make sure you 
    <dependency>
             <groupId>io.connectedhealth-idaas</groupId>
             <artifactId>idaas-eventbuilder</artifactId>
-            <version>2.2.6</version>
+            <version>2.3.0</version>
    </dependency>
 ```
 
@@ -35,10 +39,9 @@ so feel fee to look up iDaaS Event Builder in Maven Repository to make sure you 
 
 There are several ways to leverage iDaaS Event Builder depending upon the type of solution it is being used with.
 
-1. Leverage it with iDaaS, it is a core capability that is leveraged within the various specific implementations of iDaaS-Connect.
+1. Leverage it with iDaaS, it is a core capability that is already leveraged within the various specific components of iDaaS based on need, 
 2. Leverage iDaaS-EventBuilder within your development work. To do so, just include our POM.xml within other your project(s) as shown above.
 3. You can clone the repository and locally build the code. This will produce a jar file that can be included into the other project.
-
 
 If you would like to contribute feel free to, contributions are always welcome!!!!
 
