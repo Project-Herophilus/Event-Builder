@@ -1,0 +1,1 @@
+package io.connectedhealth.idaas.hcdataobjects.common;import java.util.List;public class Bundle {    public String resourceType;    public List<Entry> entry;}

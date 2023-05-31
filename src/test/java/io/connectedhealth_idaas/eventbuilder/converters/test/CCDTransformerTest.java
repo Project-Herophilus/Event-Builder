@@ -1,1 +1,0 @@
-package io.connectedhealth_idaas.eventbuilder.converters.test;import org.junit.jupiter.api.Test;import io.connectedhealth_idaas.eventbuilder.converters.ccda.CdaConversionService;public class CCDTransformerTest {    @Test    public void TestXMLString(){    }}
